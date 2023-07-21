@@ -52,7 +52,7 @@ struct ColorPreviewView: View {
 
 struct ColorSlider: View {
     @Binding var value: Double
-    var color: Color
+    let color: Color
     
     var body: some View {
         HStack {
