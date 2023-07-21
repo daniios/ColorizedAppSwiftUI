@@ -14,11 +14,16 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            ColorPreviewView(redValue: redValue, greenValue: greenValue, blueValue: blueValue)
+            ColorPreviewView(redValue: redValue,
+                             greenValue: greenValue,
+                             blueValue: blueValue)
             
-            ColorSlider(value: $redValue, color: .red)
-            ColorSlider(value: $greenValue, color: .green)
-            ColorSlider(value: $blueValue, color: .blue)
+            ColorSlider(value: $redValue,
+                        color: .red)
+            ColorSlider(value: $greenValue,
+                        color: .green)
+            ColorSlider(value: $blueValue,
+                        color: .blue)
         }
         .padding()
     }
@@ -36,7 +41,9 @@ struct ColorPreviewView: View {
     let blueValue: Double
     
     var body: some View {
-        Color(red: redValue, green: greenValue, blue: blueValue)
+        Color(red: redValue,
+              green: greenValue,
+              blue: blueValue)
             .frame(height: 200)
             .cornerRadius(10)
             .padding(.bottom, 30)
@@ -50,7 +57,8 @@ struct ColorSlider: View {
     var body: some View {
         HStack {
             Text("\(colorDescription(for: color)): \(value * 255.0, specifier: "%.0f")")
-                .frame(width: 100, alignment: .leading)
+                .frame(width: 100,
+                       alignment: .leading)
             
             Slider(value: $value, in: 0...1, step: 0.01)
                 .accentColor(color)
@@ -62,8 +70,7 @@ struct ColorSlider: View {
         switch color {
         case .red: return "Red"
         case .green: return "Green"
-        case .blue: return "Blue"
-        default: return ""
+        default: return "Blue"
         }
     }
 }
